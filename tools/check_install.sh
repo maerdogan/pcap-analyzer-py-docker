@@ -14,6 +14,7 @@ WORK=$(mktemp -d)
 SUDO=
 [[ $(id -u) == 0 ]] || SUDO=sudo
 export PCAP_ANALYZER_PORT=$PORT PCAP_ANALYZER_SMOKE_PASSWORD=$(head -c 18 /dev/urandom | base64 | tr -d '/+=')
+export PCAP_ANALYZER_SMOKE_MASTER_KEY='Smoke#Master-Key'  # the first sign-in sets it, which encrypts the data folder
 
 die() { echo "error: $*" >&2; exit 1; }
 
